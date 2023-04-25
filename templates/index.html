@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Авторизация через Discord</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+	{% if 'user' in session %}
+		<div class="profile">
+			<img src="{{ session['user']['avatar_url'] }}" alt="Avatar">
+			<div class="info">
+				<h2>{{ session['user']['username'] }}#{{ session['user']['discriminator'] }}</h2>
+				{% if session['user']['email'] %}
+					<p>{{ session['user']['email'] }}</p>
+				{% endif %}
+				<a href="{{ url_for('logout') }}">Выйти</a>
+			</div>
+		</div>
+	{% else %}
+		<div class="login">
+			<img src="{{ url_for('static', filename='Icon Discord Bot Cat.png') }}" alt="Discord Logo">
+<!--			<h2>Авторизоваться через Discord</h2>-->
+			<a href="{{ url_for('login') }}"><img src="{{ url_for('static', filename='Dis_Logo.png') }}" alt="Discord"></a>
+		</div>
+	{% endif %}
+</body>
+</html>

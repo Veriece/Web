@@ -1,0 +1,91 @@
+body {
+	font-family: Arial, sans-serif;
+	background-color: #272934;
+	margin: 0;
+	padding: 0;
+	/*background-image: url('/static/Backgraund.jpg');
+    background-size: cover;*/
+}
+
+#username:hover {
+  cursor: pointer;
+}
+
+.profile {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	background-color: #1f2129;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	margin: 20px;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 25px;
+}
+
+.profile img {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	margin-right: 20px;
+}
+
+.profile h2 {
+	margin: 0;
+	color: #9B28FA;
+}/*Ник*/
+
+.profile p {
+    color: #9B28FA;
+	margin: 10px 0;
+}/*Почта*/
+
+.profile a {
+	display: inline-block;
+	padding: 5px 10px;
+	background-color: #191B28; /*Фон кнопки Выйти*/
+	color: #edffff; /*Цвет текста кнопки Выйти*/
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+.profile a:hover {
+	background-color: #5a68a5;
+}
+
+.login {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #110f24;
+}
+
+.login h2 {
+	margin: 0 0 20px 0;
+}
+
+.login a img {
+	width: 200px;
+	height: auto;
+}
+
+#user-info {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1f2129;
+  border: 0px solid black; /*рамка*/
+  padding: 50px;
+  display: none;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+#arrow {
+  float: right;
+  cursor: pointer;
+}

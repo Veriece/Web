@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Моя красивая страница</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<style>
+		#user-info {
+			display: none;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	{% if 'user' in session %}
+		<div class="profile">
+			<img src="{{ session['user']['avatar_url'] }}" alt="Avatar">
+			<div class="info">
+				<div id="username">{{ session['user']['username'] }}</div>
+				<div class="arrow" id="arrow">&#x25B6;</div>
+				<div id="user-info">
+					{% if session['user']['email'] %}
+						<p>Email: {{ session['user']['email'] }}</p>
+					{% endif %}
+					<a href="{{ url_for('logout') }}">Выйти</a>
+				</div>
+			</div>
+		</div>
+		<script>
+			const arrow = document.getElementById("arrow");
+			const userInfo = document.getElementById("user-info");
+			const username = document.getElementById("username");
+			let isHidden = true;
+
+			username.addEventListener("mousedown", function() {
+			  if (isHidden) {
+			    userInfo.style.display = "block";
+			    isHidden = false;
+			  } else {
+			    userInfo.style.display = "none";
+			    isHidden = true;
+			  }
+			});
+			arrow.addEventListener("click", function() {
+  				userInfo.style.display = userInfo.style.display === "none" ? "block" : "none";
+  				arrow.innerHTML = userInfo.style.display === "none" ? "&#x25B6;" : "&#x25BC;";
+			});
+		</script>
+	{% else %}
+		<div class="login">
+			<h2>Авторизоваться через Discord</h2>
+			<a href="{{ url_for('login') }}"><img src="{{ url_for('static', filename='Dis_Logo.png') }}" alt="Discord"></a>
+		</div>
+	{% endif %}
+</body>
+</html>
